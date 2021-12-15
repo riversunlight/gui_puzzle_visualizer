@@ -28,6 +28,7 @@ void next_place(int &next_x, int &next_y, int &sel_x, int &sel_y, char &s, pictu
 int swap_operate(answer &ans, picture &pic, vector<vector<DynamicTexture> > &tex, vector<int> &rotate) {
 	static int sel_x = -1, sel_y = -1, line = 0, move = -1;
 	int next_x, next_y;
+	
 	if (sel_x == -1) {
 		sel_x = ans.sel_place[0].first;
 		sel_y = ans.sel_place[0].second;

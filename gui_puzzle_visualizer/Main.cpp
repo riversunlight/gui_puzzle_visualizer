@@ -32,7 +32,7 @@ void Main()
 			if (swap_operate(ans, pic, tex, rotate))
 				ex = 0;
 		}
-		draw(tex, ans, pic, rotate);
+		draw(tex, pic, rotate);
 		if (KeyEscape.down())
 			System::Exit();
 	}
