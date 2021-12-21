@@ -6,6 +6,7 @@ using namespace std;
 #include <utility>
 #include "picture.h"
 #include "answer.h"
+#include "current_cost.h"
 
 // 16進数を10進数に変更(1桁)
 int h2d(char num) {
@@ -14,7 +15,7 @@ int h2d(char num) {
 	return num - 'A' + 10;
 }
 
-void input_data(picture &pic, answer &ans, vector<vector<DynamicTexture> > &tex) {
+void input_data(picture &pic, answer &ans, vector<vector<DynamicTexture> > &tex, Current_cost &ccost) {
 	FILE* fp;
 	errno_t err;
 	int tmp, line, piece_size, piece_num;
@@ -58,6 +59,7 @@ void input_data(picture &pic, answer &ans, vector<vector<DynamicTexture> > &tex)
 	fscanf_s(fp, "%d\n", &line);
 	ans.sel_place.resize(line);
 	ans.move_operate.resize(line);
+	ccost.max_sel_cost = line * pic.select_cost;
 	for (int i = 0; i < line; i++) {
 		int move;
 		fscanf_s(fp, "%s\n", buf, 256);
@@ -65,6 +67,7 @@ void input_data(picture &pic, answer &ans, vector<vector<DynamicTexture> > &tex)
 		ans.sel_place[i].second = h2d(buf[1]);
 		fscanf_s(fp, "%d\n", &move);
 		fscanf_s(fp, "%s\n", buf, 1000000);
+		ccost.max_swap_cost += move * pic.swap_cost;
 		for (int j = 0; j < move; j++)
 			ans.move_operate[i] += buf[j];
 	}

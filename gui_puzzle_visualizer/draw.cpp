@@ -18,12 +18,12 @@ void draw(vector<vector<DynamicTexture> > &tex, picture &pic, vector<int> &rotat
 
 	// 設定、現在コストの表示
 	font(
-		U"画面サイズ:", pic.div_x, U"x", pic.div_y, U"\n",
-		U"選択コスト:", pic.select_cost, U"\n",
-		U"交換コスト:", pic.swap_cost,U"\n"
+		U"画面サイズ      :", pic.div_x, U"x", pic.div_y, U"\n",
+		U"選択コストレート:", pic.select_cost, U"\n",
+		U"交換コストレート:", pic.swap_cost,U"\n"
 	).draw(720, 0);
 	font(
-		U"選択コスト:", ccost.select_cost, U"\n",
-		U"交換コスト:", ccost.swap_cost, U"\n"
+		U"選択コスト:", ccost.select_cost, U"/", ccost.max_sel_cost, U"\n",
+		U"交換コスト:", ccost.swap_cost, U"/", ccost.max_swap_cost, U"\n"
 	).draw(720, 130);
 }

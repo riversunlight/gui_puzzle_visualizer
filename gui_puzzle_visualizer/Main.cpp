@@ -26,7 +26,7 @@ void Main()
 	vector<vector<DynamicTexture> > tex;
 	vector<int> rotate;
 	int ex = 1;
-	input_data(pic, ans, tex);
+	input_data(pic, ans, tex, ccost);
 	rotate = change_rotate(ans, pic);
 	while (System::Update()) {
 		if (ex) {
