@@ -812,5 +812,8 @@
     <ClInclude Include="utility_gpv.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="current_cost.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

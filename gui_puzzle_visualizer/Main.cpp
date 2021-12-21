@@ -10,6 +10,7 @@ using namespace std;
 #include <utility>
 #include "picture.h"
 #include "answer.h"
+#include "current_cost.h"
 #include "input_data.h"
 #include "draw.h"
 #include "operate.h"
@@ -17,11 +18,11 @@ using namespace std;
 
 void Main()
 {
-
 	Window::Resize(Size(1280, 720));
 
 	picture pic;
 	answer ans;
+	Current_cost ccost;
 	vector<vector<DynamicTexture> > tex;
 	vector<int> rotate;
 	int ex = 1;
@@ -29,10 +30,10 @@ void Main()
 	rotate = change_rotate(ans, pic);
 	while (System::Update()) {
 		if (ex) {
-			if (swap_operate(ans, pic, tex, rotate))
+			if (swap_operate(ans, pic, tex, rotate, ccost))
 				ex = 0;
 		}
-		draw(tex, pic, rotate);
+		draw(tex, pic, rotate, ccost);
 		if (KeyEscape.down())
 			System::Exit();
 	}

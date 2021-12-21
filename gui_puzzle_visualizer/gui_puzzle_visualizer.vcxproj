@@ -319,6 +319,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="answer.h" />
+    <ClInclude Include="current_cost.h" />
     <ClInclude Include="draw.h" />
     <ClInclude Include="input_data.h" />
     <ClInclude Include="operate.h" />
